@@ -1,0 +1,59 @@
+// BMM LOC annotation file.
+//
+// Release 14.1 -  P.49d, build 2.8 Mar 16, 2012
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Processor 'microblaze_0', ID 100, memory map.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+ADDRESS_MAP microblaze_0 MICROBLAZE 100
+
+    ///////////////////////////////////////////////////////////////////////////////
+    //
+    // Processor 'microblaze_0' address space 'lmb_bram_combined' 0x00000000:0x0001FFFF (128 KBytes).
+    //
+    ///////////////////////////////////////////////////////////////////////////////
+
+    ADDRESS_SPACE lmb_bram_combined RAMB32 [0x00000000:0x0001FFFF]
+        BUS_BLOCK
+            mb_system/lmb_bram/lmb_bram/ramb36_0 RAMB32 [31:31] [0:32767] INPUT = lmb_bram_combined_0.mem PLACED = X2Y13;
+            mb_system/lmb_bram/lmb_bram/ramb36_1 RAMB32 [30:30] [0:32767] INPUT = lmb_bram_combined_1.mem PLACED = X1Y13;
+            mb_system/lmb_bram/lmb_bram/ramb36_2 RAMB32 [29:29] [0:32767] INPUT = lmb_bram_combined_2.mem PLACED = X1Y12;
+            mb_system/lmb_bram/lmb_bram/ramb36_3 RAMB32 [28:28] [0:32767] INPUT = lmb_bram_combined_3.mem PLACED = X2Y14;
+            mb_system/lmb_bram/lmb_bram/ramb36_4 RAMB32 [27:27] [0:32767] INPUT = lmb_bram_combined_4.mem PLACED = X3Y12;
+            mb_system/lmb_bram/lmb_bram/ramb36_5 RAMB32 [26:26] [0:32767] INPUT = lmb_bram_combined_5.mem PLACED = X3Y13;
+            mb_system/lmb_bram/lmb_bram/ramb36_6 RAMB32 [25:25] [0:32767] INPUT = lmb_bram_combined_6.mem PLACED = X2Y15;
+            mb_system/lmb_bram/lmb_bram/ramb36_7 RAMB32 [24:24] [0:32767] INPUT = lmb_bram_combined_7.mem PLACED = X2Y12;
+            mb_system/lmb_bram/lmb_bram/ramb36_8 RAMB32 [23:23] [0:32767] INPUT = lmb_bram_combined_8.mem PLACED = X1Y16;
+            mb_system/lmb_bram/lmb_bram/ramb36_9 RAMB32 [22:22] [0:32767] INPUT = lmb_bram_combined_9.mem PLACED = X0Y17;
+            mb_system/lmb_bram/lmb_bram/ramb36_10 RAMB32 [21:21] [0:32767] INPUT = lmb_bram_combined_10.mem PLACED = X0Y16;
+            mb_system/lmb_bram/lmb_bram/ramb36_11 RAMB32 [20:20] [0:32767] INPUT = lmb_bram_combined_11.mem PLACED = X1Y17;
+            mb_system/lmb_bram/lmb_bram/ramb36_12 RAMB32 [19:19] [0:32767] INPUT = lmb_bram_combined_12.mem PLACED = X1Y14;
+            mb_system/lmb_bram/lmb_bram/ramb36_13 RAMB32 [18:18] [0:32767] INPUT = lmb_bram_combined_13.mem PLACED = X0Y15;
+            mb_system/lmb_bram/lmb_bram/ramb36_14 RAMB32 [17:17] [0:32767] INPUT = lmb_bram_combined_14.mem PLACED = X1Y15;
+            mb_system/lmb_bram/lmb_bram/ramb36_15 RAMB32 [16:16] [0:32767] INPUT = lmb_bram_combined_15.mem PLACED = X0Y14;
+            mb_system/lmb_bram/lmb_bram/ramb36_16 RAMB32 [15:15] [0:32767] INPUT = lmb_bram_combined_16.mem PLACED = X3Y16;
+            mb_system/lmb_bram/lmb_bram/ramb36_17 RAMB32 [14:14] [0:32767] INPUT = lmb_bram_combined_17.mem PLACED = X4Y16;
+            mb_system/lmb_bram/lmb_bram/ramb36_18 RAMB32 [13:13] [0:32767] INPUT = lmb_bram_combined_18.mem PLACED = X3Y17;
+            mb_system/lmb_bram/lmb_bram/ramb36_19 RAMB32 [12:12] [0:32767] INPUT = lmb_bram_combined_19.mem PLACED = X4Y17;
+            mb_system/lmb_bram/lmb_bram/ramb36_20 RAMB32 [11:11] [0:32767] INPUT = lmb_bram_combined_20.mem PLACED = X4Y15;
+            mb_system/lmb_bram/lmb_bram/ramb36_21 RAMB32 [10:10] [0:32767] INPUT = lmb_bram_combined_21.mem PLACED = X3Y14;
+            mb_system/lmb_bram/lmb_bram/ramb36_22 RAMB32 [9:9] [0:32767] INPUT = lmb_bram_combined_22.mem PLACED = X3Y15;
+            mb_system/lmb_bram/lmb_bram/ramb36_23 RAMB32 [8:8] [0:32767] INPUT = lmb_bram_combined_23.mem PLACED = X3Y18;
+            mb_system/lmb_bram/lmb_bram/ramb36_24 RAMB32 [7:7] [0:32767] INPUT = lmb_bram_combined_24.mem PLACED = X2Y17;
+            mb_system/lmb_bram/lmb_bram/ramb36_25 RAMB32 [6:6] [0:32767] INPUT = lmb_bram_combined_25.mem PLACED = X2Y19;
+            mb_system/lmb_bram/lmb_bram/ramb36_26 RAMB32 [5:5] [0:32767] INPUT = lmb_bram_combined_26.mem PLACED = X2Y18;
+            mb_system/lmb_bram/lmb_bram/ramb36_27 RAMB32 [4:4] [0:32767] INPUT = lmb_bram_combined_27.mem PLACED = X3Y19;
+            mb_system/lmb_bram/lmb_bram/ramb36_28 RAMB32 [3:3] [0:32767] INPUT = lmb_bram_combined_28.mem PLACED = X1Y19;
+            mb_system/lmb_bram/lmb_bram/ramb36_29 RAMB32 [2:2] [0:32767] INPUT = lmb_bram_combined_29.mem PLACED = X2Y20;
+            mb_system/lmb_bram/lmb_bram/ramb36_30 RAMB32 [1:1] [0:32767] INPUT = lmb_bram_combined_30.mem PLACED = X1Y18;
+            mb_system/lmb_bram/lmb_bram/ramb36_31 RAMB32 [0:0] [0:32767] INPUT = lmb_bram_combined_31.mem PLACED = X2Y16;
+        END_BUS_BLOCK;
+    END_ADDRESS_SPACE;
+
+END_ADDRESS_MAP;
+
