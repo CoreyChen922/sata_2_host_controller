@@ -1,0 +1,24 @@
+Test logic Registers
+------------------------
+test_reset_reg        0x8000 0000   0           Write only
+test_command_reg      0x8000 0004   4           Read and Write
+test_sector_count_reg 0x8000 0008   8			Read and Write
+test_status_reg       0x8000 000C  12			Read only
+troughput_count1      0x8000 0010  16           Read only
+test_lba_addr_low     0x8000 0014  20           Read and Write
+test_lba_addr_high    0x8000 0018  24           Read and Write
+
+
+
+test_command_reg:
+1 for DMA read
+2 for DMA write
+
+test_status_reg:
+bit 0 - 1 command is active, 0 command is finished
+bit 1 - 1 value for error, 0 for no error
+bit 2 - 1 Error reported from SSD, 0 for no error from SSD
+
+
+TX_RAM Address 0x8001 0000 8KB                 Write only
+RX_RAM Address 0x8002 0000 8KB                 Read only
