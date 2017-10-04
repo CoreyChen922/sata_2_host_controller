@@ -1,1 +1,148 @@
 
+## File name   : SATA_Controller.ucf
+## Test/Verification Environment
+## Target devices : xc5vlx50t ff1136
+## Tool versions  : Xilinx ISE 14.4
+## Dependencies   : Nil
+
+################################## Clock Constraints ##########################
+CONFIG STEPPING = "ES";
+
+NET SATA_TOP1/PHY/gtp_refclkout     PERIOD = 6.666 ns;
+NET SATA_TOP1/PHY/dcm_clk2x         PERIOD = 3.333 ns;
+NET SATA_TOP1/PHY/dcm_clk0          PERIOD = 6.666 ns;
+NET SATA_TOP1/PHY/dcm_clkdv         PERIOD = 13.333 ns;
+NET SATA_TOP1/PHY/bufr_div2_clk_out PERIOD = 13.333 ns;
+NET SATA_TOP1/PHY/div2_logic_clock  PERIOD = 13.333 ns;
+
+## Constraints to place registers close to MGT 
+TIMEGRP MGTFFS = FFS (SATA_TOP1/PHY/oob_control_i/*);
+TIMESPEC "TS_FFS2MGT" = FROM MGTFFS TO HSIOS 6.666ns;
+TIMESPEC "TS_MGT2FFS" = FROM HSIOS  TO MGTFFS 6.666ns;
+
+NET "SATA_TOP1/PHY/logic_clk" TNM_NET = "logic_clk";
+NET "SATA_TOP1/PHY/div2_logic_clock" TNM_NET = "div2_logic_clock";
+TIMESPEC "TS_logic_clk" = PERIOD "logic_clk" 6.66 ns;
+TIMESPEC "TS_div2_logic_clock" = PERIOD "div2_logic_clock" TS_logic_clk/2 PHASE 0 ns ;
+
+
+# USRCLK  Contraint
+#NET GTP_wrapper_i/tx_dcm_clk2x PERIOD  = 3.333 ns;
+
+# USRCLK2 Contraint
+#NET gtp0_txusrclk2_i PERIOD = 3.33  ns;
+ 
+######################## locs for top level ports ######################
+
+#Push button connections for resets
+NET 	GTPRESET_IN           LOC = AJ6;   #BUTTON SW14
+NET 	TXP0_OUT              LOC = V2;
+NET 	TXN0_OUT              LOC = W2;
+NET 	RXP0_IN               LOC = W1;
+NET 	RXN0_IN               LOC = Y1;
+
+
+#NET  	error_led1		        LOC = F6;  
+#NET  	error_led2		        LOC = T10; 
+NET 	TILE0_PLLLKDET_OUT  	LOC = H18; 	#LED 0
+NET  	DCMLOCKED_OUT		      LOC = L18;	#LED 1
+NET  	LINKUP  		          LOC = G15;	#LED 2
+NET 	GEN2    		          LOC = AD26;
+	
+#NET  	gpio_led[4]          	LOC = G16;
+#NET  	gpio_led[5]          	LOC = AD25;
+#NET  	gpio_led[6]          	LOC = AD24;
+#NET  	gpio_led[7]          	LOC = AE24;
+#NET	  led_n			            LOC = AF13;		
+#NET	  led_e			            LOC = AG23;
+#NET	  led_s			            LOC = AG12;
+#NET	  led_w			            LOC = AF23;
+#NET	  led_c			            LOC = E8;
+
+######################### mgt clock module constraints ########################
+
+NET   TILE0_REFCLK_PAD_N_IN  LOC = Y3;
+NET   TILE0_REFCLK_PAD_P_IN  LOC = Y4;
+
+################################# mgt wrapper constraints #####################
+
+INST SATA_TOP1/PHY/GTP_DUAL_0          LOC = GTP_DUAL_X0Y2;
+
+#
+# ChipScope Clock constraints
+#
+NET "SATA_TOP1/PHY/dcm_clk0"          TNM_NET = D_CLK ;
+
+//NET "SATA_TOP1/PHY/dcm2_clk0" TNM_NET = DCM2_OUT_CLK ;
+NET "SATA_TOP1/PHY/bufr_div2_clk_out" TNM_NET = DCM2_OUT2_CLK ;
+NET "SATA_TOP1/PHY/logic_clk"         TNM_NET = DCM2_IN_CLK ;
+
+TIMESPEC TS_D_TO_J = FROM DCM2_IN_CLK TO DCM2_OUT2_CLK TIG ;
+//TIMESPEC TS_D_TO_J = FROM DCM2_IN_CLK TO DCM2_OUT_CLK TIG ;
+
+
+NET "SATA_TOP1/PHY/dcm_clk0"          TNM_NET = D_CLK ;
+
+
+
+
+
+//TIMESPEC TS_J_TO_J = FROM J_CLK TO J_CLK 30 ns ;
+//TIMESPEC TS_U_TO_J = FROM U_CLK TO J_CLK 15 ns ;
+//TIMESPEC TS_U_TO_U = FROM U_CLK TO U_CLK 15 ns ;
+//TIMESPEC TS_U_TO_D = FROM U_CLK TO D_CLK TIG ;
+//TIMESPEC TS_J_TO_D = FROM J_CLK TO D_CLK TIG ;
+//TIMESPEC TS_D_TO_J = FROM D_CLK TO J_CLK TIG ;
+
+
+##Temperory assignment for testing##
+##NET data_out(0)       LOC = L34;
+##NET data_out(1)       LOC = K34;
+##NET data_out(2)       LOC = K33;
+##NET data_out(3)       LOC = K32;
+##NET data_out(4)       LOC = P32;
+##NET data_out(5)       LOC = N32;
+##NET data_out(6)       LOC = T33;
+##NET data_out(7)       LOC = R34;
+##NET data_out(8)       LOC = R33;
+##NET data_out(9)       LOC = R32;
+##NET data_out(10)      LOC = U33;
+##NET data_out(11)      LOC = T34;
+##NET data_out(12)      LOC = U32;
+##NET data_out(13)      LOC = U31;
+##NET data_out(14)      LOC = V32;
+##NET data_out(15)      LOC = V33;
+##NET data_out(16)      LOC = W34;
+##NET data_out(17)      LOC = V34;
+##NET data_out(18)      LOC = Y33;
+##NET data_out(19)      LOC = AA33;
+##NET data_out(20)      LOC = AF34;
+##NET data_out(21)      LOC = AE34;
+##NET data_out(22)      LOC = AF33;
+##NET data_out(23)      LOC = AE33;
+##NET data_out(24)      LOC = AC34;
+##NET data_out(25)      LOC = AD34;
+##NET data_out(26)      LOC = AC32;
+##NET data_out(27)      LOC = AB32;
+##NET data_out(28)      LOC = AC33;
+##NET data_out(29)      LOC = AB33;
+##NET data_out(30)      LOC = AN32;
+##NET data_out(31)      LOC = AP32;
+
+##NET SOF               LOC = H33;
+##NET EOF               LOC = F34;
+NET PHY_CLK_OUT       LOC = H34;
+NET CLK_OUT           LOC = G33;
+//NET TEST_BUTTON_DOWN  LOC = V8;
+
+
+
+#  Virtex 5 ML506 Evaluation Platform
+Net fpga_0_RS232_Uart_1_RX_pin LOC = AG15  |  IOSTANDARD=LVCMOS33;
+Net fpga_0_RS232_Uart_1_TX_pin LOC = AG20  |  IOSTANDARD=LVCMOS33;
+Net fpga_0_clk_1_sys_clk_pin TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
+Net fpga_0_clk_1_sys_clk_pin LOC = AH15  |  IOSTANDARD=LVCMOS33;
+Net fpga_0_rst_1_sys_rst_pin TIG;
+Net fpga_0_rst_1_sys_rst_pin LOC = E9  |  IOSTANDARD=LVCMOS33  |  PULLUP;
+
